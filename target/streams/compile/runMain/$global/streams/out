@@ -1,0 +1,27 @@
+[0m[[0minfo[0m] [0mRunning com.knoldus.main.CustomProducer [0m
+[0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
+[0m[[0mdebug[0m] [0m  Classpath:[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/projects/contribute/activator-kafka-producer-consumer/target/scala-2.12/classes[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.apache.kafka/kafka_2.11/jars/kafka_2.11-0.10.1.1.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-0.10.1.1.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/net.jpountz.lz4/lz4/jars/lz4-1.3.0.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.xerial.snappy/snappy-java/bundles/snappy-java-1.1.2.6.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/Documents/Softwares/activator-dist-1.3.12/repository/org.slf4j/slf4j-api/1.7.21/jars/slf4j-api.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/net.sf.jopt-simple/jopt-simple/jars/jopt-simple-4.9.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/com.yammer.metrics/metrics-core/jars/metrics-core-2.2.0.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.slf4j/slf4j-log4j12/jars/slf4j-log4j12-1.7.21.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/com.101tec/zkclient/jars/zkclient-0.9.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.apache.zookeeper/zookeeper/jars/zookeeper-3.4.8.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.8.6.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.8.0.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.8.6.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.twitter4j/twitter4j-stream/jars/twitter4j-stream-4.0.6.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/org.twitter4j/twitter4j-core/jars/twitter4j-core-4.0.6.jar[0m
+[0m[[0mdebug[0m] [0m	/home/sangeeta/.ivy2/cache/com.typesafe/config/bundles/config-1.3.1.jar[0m
+[0m[[0mdebug[0m] [0mWaiting for thread run-main-0 to terminate.[0m
+[0m[[0mdebug[0m] [0m	Thread run-main-0 exited.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread Twitter Stream consumer /  [1][initializing] to terminate.[0m
