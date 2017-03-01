@@ -9,7 +9,7 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 class TweetProducer {
 
   def send(tweet: Tweet) {
-    val kafkaServers = ConfigReader.getKafkaServer
+    val kafkaServers = ConfigReader.getKafkaServers
     val kafkaTopic = ConfigReader.getKafkaTopic
     val properties = new Properties
     properties.put("bootstrap.servers", kafkaServers)

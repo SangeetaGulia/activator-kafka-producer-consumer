@@ -4,7 +4,7 @@
 		module="activator-kafka-producer-consumer-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170301110137"
+		publication="20170301114041"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

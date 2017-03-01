@@ -1,5 +1,7 @@
 package com.knoldus.twitter
 
+import java.io.IOException
+
 import com.knoldus.kafka.TweetProducer
 import com.knoldus.utils.ConfigReader
 import twitter4j._
@@ -20,40 +22,34 @@ class TwitterNewsFeed {
     new TwitterStreamFactory(configBuilder).getInstance()
   }
 
-  def sendTweetsToKafka = {
+  @throws[TwitterException]
+  @throws[IOException]
+  def sendTweetsToKafka() {
+    val listener = new StatusListener() {
+      def onStatus(status: Status) {
 
-    println("sending tweets to kafka")
-
-    val listener = new StatusListener {
-
-      override def onStatus(status: Status) = {
-        println("Status changed")
-        val tweet = Tweet(status.getUser.getName, status.getText, status.getFavoriteCount, status.getUser.isVerified, status.isRetweet)
+        val tweet = new Tweet(status.getUser.getName, status.getText, status.getFavoriteCount, status.getUser.isVerified, status.isRetweet)
         new TweetProducer().send(tweet)
-        println("Sent: " + tweet)
+        System.out.println("Sent: [ " + tweet + " ] ")
       }
 
-      override def onStallWarning(warning: StallWarning) = {
+      def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) {
       }
-
-      override def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) = {
+      def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {
       }
-
-      override def onScrubGeo(userId: Long, upToStatusId: Long) = {
+      def onScrubGeo(l: Long, l1: Long) {
       }
-
-      override def onTrackLimitationNotice(numberOfLimitedStatuses: Int) = {
+      def onStallWarning(stallWarning: StallWarning) {
       }
-
-      override def onException(ex: Exception) = {
+      def onException(ex: Exception) {
+        ex.printStackTrace()
       }
 
     }
-
     val twitterStream = getTwitterConfigurations
     twitterStream.addListener(listener)
+    println("Started Listening to tweets")
     twitterStream.sample("en")
-
   }
 
 }

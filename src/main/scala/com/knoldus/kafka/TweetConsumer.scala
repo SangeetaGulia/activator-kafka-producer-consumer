@@ -10,7 +10,7 @@ import org.apache.kafka.clients.consumer.{ConsumerRecords, KafkaConsumer}
 class TweetConsumer {
 
   def consumeTweets(groupId: String): Unit ={
-    val kafkaServer = ConfigReader.getKafkaServer
+    val kafkaServer = ConfigReader.getKafkaServers
     val kafkaTopic = ConfigReader.getKafkaTopic
 
     val properties = new Properties()

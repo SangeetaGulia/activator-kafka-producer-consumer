@@ -4,9 +4,9 @@ import com.typesafe.config.ConfigFactory
 
 object ConfigReader {
 
-  val conf = ConfigFactory.load()
+   val conf = ConfigFactory.load
 
-  def getTwitterConsumerKey: String = conf.getString("twitter.consumerSecret")
+  def getTwitterConsumerKey: String = conf.getString("twitter.consumerKey")
 
   def getTwitterConsumerSecretKey: String = conf.getString("twitter.consumerSecret")
 
@@ -14,8 +14,7 @@ object ConfigReader {
 
   def getTwitterAccessSecretToken: String = conf.getString("twitter.accessTokenSecret")
 
-  def getKafkaServer = conf.getString("kafka.server")
+  def getKafkaServers: String = conf.getString("kafka.servers")
 
-  def getKafkaTopic = conf.getString("kafka.topic")
-
+  def getKafkaTopic: String = conf.getString("kafka.topic")
 }

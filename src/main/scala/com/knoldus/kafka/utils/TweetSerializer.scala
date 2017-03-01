@@ -17,15 +17,6 @@ class TweetSerializer extends Serializer[Tweet]{
     oos.writeObject(tweet)
     oos.close
     stream.toByteArray
-
-    /*val objectMapper = new ObjectMapper
-    Try {
-      objectMapper.writeValueAsString(tweet).getBytes
-    }
-    match {
-      case Success(tweet: Array[Byte]) => tweet
-      case Failure(exception) => throw new Exception("Unable to Serialize !!" + exception.getMessage)
-    }*/
   }
 
   def close() {
