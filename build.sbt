@@ -2,7 +2,9 @@ name := """activator-kafka-producer-consumer"""
 
 version := "1.0"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.11.6"
+
+libraryDependencies += "net.liftweb" % "lift-json_2.11" % "3.0"
 
 libraryDependencies ++= Seq(
   "org.apache.kafka" % "kafka_2.11" % "0.10.1.1",

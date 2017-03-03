@@ -6,10 +6,11 @@ import java.util.Properties
 import com.knoldus.twitter.Tweet
 import com.knoldus.utils.ConfigReader
 import org.apache.kafka.clients.consumer.{ConsumerRecords, KafkaConsumer}
+import scala.collection.JavaConversions._
 
 class TweetConsumer {
 
-  def consumeTweets(groupId: String): Unit ={
+  def consumeTweets(groupId: String): Unit = {
     val kafkaServer = ConfigReader.getKafkaServers
     val kafkaTopic = ConfigReader.getKafkaTopic
 
@@ -21,14 +22,16 @@ class TweetConsumer {
     properties.put("auto.offset.reset", "earliest")
     properties.put("session.timeout.ms", "30000")
     properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
-    properties.put("value.deserializer", "com.knoldus.kafka.utils.TweetDeserializer")
+    properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
 
     val kafkaConsumer = new KafkaConsumer[String, Tweet](properties)
     kafkaConsumer.subscribe(util.Collections.singletonList(kafkaTopic))
 
-    while(true){
+    while (true) {
       val records: ConsumerRecords[String, Tweet] = kafkaConsumer.poll(100)
-      records.forEach(record => println(record.value()))
+      records.records(kafkaTopic).iterator().toList.foreach { record =>
+        println(s"Received : ${record.value()}")
+      }
     }
   }
 }

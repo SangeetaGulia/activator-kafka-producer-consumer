@@ -8,7 +8,7 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
 class TweetProducer {
 
-  def send(tweet: Tweet) {
+  def send(tweet: String) {
     val kafkaServers = ConfigReader.getKafkaServers
     val kafkaTopic = ConfigReader.getKafkaTopic
     val properties = new Properties
@@ -19,11 +19,11 @@ class TweetProducer {
     properties.put("linger.ms", "1")
     properties.put("buffer.memory", "33554432")
     properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
-    properties.put("value.serializer", "com.knoldus.kafka.utils.TweetSerializer")
+    properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 
     try {
-      val producer = new KafkaProducer[String, Tweet](properties)
-      producer.send(new ProducerRecord[String, Tweet](kafkaTopic, tweet))
+      val producer = new KafkaProducer[String, String](properties)
+      producer.send(new ProducerRecord[String, String](kafkaTopic, tweet.toString))
     } catch {
         case ex: Exception => {
           ex.printStackTrace()

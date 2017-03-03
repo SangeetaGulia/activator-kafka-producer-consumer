@@ -4,10 +4,18 @@ import java.io.IOException
 
 import com.knoldus.kafka.TweetProducer
 import com.knoldus.utils.ConfigReader
+import net.liftweb.json.DefaultFormats
+import net.liftweb.json.Extraction._
+import net.liftweb.json.JsonAST._
 import twitter4j._
 import twitter4j.conf.{Configuration, ConfigurationBuilder}
 
-case class Tweet(userName: String, text: String, favCount: Int, isVerified: Boolean, isRetweet: Boolean)
+case class Tweet(userName: String, text: String, favCount: Int, isVerified: Boolean, isRetweet: Boolean){
+  override def toString: String = {
+    implicit val formats = DefaultFormats
+    prettyRender( decompose(this))
+  }
+}
 
 class TwitterNewsFeed {
 
@@ -29,7 +37,7 @@ class TwitterNewsFeed {
       def onStatus(status: Status) {
 
         val tweet = new Tweet(status.getUser.getName, status.getText, status.getFavoriteCount, status.getUser.isVerified, status.isRetweet)
-        new TweetProducer().send(tweet)
+        new TweetProducer().send(tweet.toString)
         System.out.println("Sent: [ " + tweet + " ] ")
       }
 
@@ -37,14 +45,16 @@ class TwitterNewsFeed {
       }
       def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {
       }
+
       def onScrubGeo(l: Long, l1: Long) {
       }
+
       def onStallWarning(stallWarning: StallWarning) {
       }
+
       def onException(ex: Exception) {
         ex.printStackTrace()
       }
-
     }
     val twitterStream = getTwitterConfigurations
     twitterStream.addListener(listener)
